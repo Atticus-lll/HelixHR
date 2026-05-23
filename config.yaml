@@ -1,0 +1,49 @@
+app:
+  name: "企业员工管理系统"
+  version: "1.0.0"
+  debug: true
+  host: "0.0.0.0"
+  port: 8001
+
+database:
+  host: "localhost"
+  port: 3308
+  username: "root"
+  password: "yzx200391"
+  name: "test_db"
+  pool_size: 10
+  max_overflow: 20
+
+security:
+  secret_key: "fastapi-project-dev-secret-key-change-in-production"
+  algorithm: "HS256"
+  access_token_expire_minutes: 120
+
+cors:
+  allow_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8080"
+  allow_credentials: true
+  allow_methods:
+    - "*"
+  allow_headers:
+    - "*"
+
+rate_limit:
+  enabled: true
+  requests_per_minute: 60
+
+rag:
+  embedding_model: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  embedding_dimension: 384
+  collection_name: "eems_documents"
+  persist_directory: "./data/chroma_db"
+  chunk_size: 800
+  chunk_overlap: 50
+  top_k: 5
+  similarity_threshold: 0.3
+
+admin:
+  username: "admin"
+  password: "admin123456"
+  role_name: "系统管理员"

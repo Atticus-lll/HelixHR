@@ -1,0 +1,14 @@
+2026-05-16 00:15:13 | INFO     | app.main:lifespan:21 - 启动 企业员工管理系统 v1.0.0
+2026-05-16 00:15:13 | INFO     | app.main:lifespan:22 - Debug 模式: True
+2026-05-16 00:15:21 | INFO     | app.main:log_requests:108 - GET /api/v1/auth/me - 422 - 1.3ms
+2026-05-16 00:18:46 | INFO     | app.main:log_requests:108 - GET /debug/me-validate - 404 - 0.82ms
+2026-05-16 00:20:01 | INFO     | app.main:lifespan:21 - 启动 企业员工管理系统 v1.0.0
+2026-05-16 00:20:01 | INFO     | app.main:lifespan:22 - Debug 模式: True
+2026-05-16 22:20:20 | INFO     | app.main:lifespan:21 - 启动 企业员工管理系统 v1.0.0
+2026-05-16 22:20:20 | INFO     | app.main:lifespan:22 - Debug 模式: True
+2026-05-16 22:21:10 | INFO     | app.main:lifespan:21 - 启动 企业员工管理系统 v1.0.0
+2026-05-16 22:21:10 | INFO     | app.main:lifespan:22 - Debug 模式: True
+2026-05-16 22:21:10 | INFO     | app.main:lifespan:24 - 应用关闭
+2026-05-16 22:34:18 | INFO     | app.main:lifespan:21 - 启动 企业员工管理系统 v1.0.0
+2026-05-16 22:34:18 | INFO     | app.main:lifespan:22 - Debug 模式: True
+2026-05-16 22:34:18 | INFO     | app.main:lifespan:24 - 应用关闭

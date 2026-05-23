@@ -1,0 +1,87 @@
+2026-05-15 17:51:03 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 17:51:03 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 17:51:05 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.39ms
+2026-05-15 17:51:42 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.61ms
+2026-05-15 17:52:43 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.33ms
+2026-05-15 17:52:59 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 81.61ms
+2026-05-15 20:50:50 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 20:50:50 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 20:50:57 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.32ms
+2026-05-15 20:51:03 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 86.72ms
+2026-05-15 21:14:34 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 21:14:34 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 21:14:35 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.5ms
+2026-05-15 21:14:35 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 74.41ms
+2026-05-15 21:16:53 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.26ms
+2026-05-15 21:16:53 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 0.87ms
+2026-05-15 21:18:03 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 21:18:03 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 21:18:04 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.48ms
+2026-05-15 21:18:04 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 73.87ms
+2026-05-15 21:20:58 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 21:20:58 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 21:21:01 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.38ms
+2026-05-15 21:21:01 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 80.19ms
+2026-05-15 21:23:41 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.28ms
+2026-05-15 21:23:41 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 0.81ms
+2026-05-15 21:23:51 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.38ms
+2026-05-15 21:23:51 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 1.05ms
+2026-05-15 21:24:18 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 1.21ms
+2026-05-15 21:24:18 | INFO     | app.main:log_requests:61 - GET /favicon.ico - 404 - 0.51ms
+2026-05-15 21:31:39 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 21:31:39 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 21:31:40 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.36ms
+2026-05-15 21:31:40 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 81.6ms
+2026-05-15 21:35:32 | INFO     | app.main:log_requests:61 - POST /api/v1/auth/login - 401 - 274.42ms
+2026-05-15 21:35:40 | INFO     | app.main:log_requests:61 - POST /api/v1/auth/login - 200 - 229.0ms
+2026-05-15 21:41:33 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 21:41:33 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 21:41:33 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.31ms
+2026-05-15 21:41:33 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 73.76ms
+2026-05-15 21:42:21 | INFO     | app.main:log_requests:61 - GET /docs - 200 - 0.4ms
+2026-05-15 21:42:21 | INFO     | app.main:log_requests:61 - GET /openapi.json - 200 - 1.15ms
+2026-05-15 21:47:27 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 21:47:27 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 21:47:28 | INFO     | app.main:log_requests:85 - GET /docs - 200 - 0.41ms
+2026-05-15 21:47:28 | INFO     | app.main:log_requests:85 - GET /openapi.json - 200 - 84.29ms
+2026-05-15 21:52:19 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 21:52:19 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 21:52:19 | INFO     | app.main:log_requests:79 - GET /docs - 404 - 0.69ms
+2026-05-15 21:52:27 | INFO     | app.main:log_requests:79 - GET /docs - 404 - 0.4ms
+2026-05-15 21:52:32 | INFO     | app.main:log_requests:79 - GET /docs - 404 - 0.32ms
+2026-05-15 21:52:51 | INFO     | app.main:log_requests:79 - GET /docs - 404 - 0.48ms
+2026-05-15 21:52:53 | INFO     | app.main:log_requests:79 - GET /docs - 404 - 0.41ms
+2026-05-15 21:55:40 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 21:55:40 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 21:55:43 | INFO     | app.main:log_requests:88 - GET /docs - 200 - 0.54ms
+2026-05-15 21:55:43 | INFO     | app.main:log_requests:88 - GET /openapi.json - 200 - 80.87ms
+2026-05-15 21:56:52 | INFO     | app.main:log_requests:88 - POST /api/v1/auth/login - 200 - 287.85ms
+2026-05-15 21:57:13 | INFO     | app.main:log_requests:88 - GET /api/v1/auth/me - 422 - 2.58ms
+2026-05-15 22:27:49 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 22:27:49 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 22:28:03 | INFO     | app.main:log_requests:88 - GET /docs - 200 - 0.67ms
+2026-05-15 22:28:03 | INFO     | app.main:log_requests:88 - GET /openapi.json - 200 - 87.27ms
+2026-05-15 22:28:23 | INFO     | app.main:log_requests:88 - POST /api/v1/auth/login - 200 - 293.48ms
+2026-05-15 22:28:54 | INFO     | app.main:log_requests:88 - GET /api/v1/auth/me - 422 - 3.12ms
+2026-05-15 22:33:02 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 22:33:02 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 22:33:10 | INFO     | app.main:log_requests:89 - GET /docs - 200 - 0.37ms
+2026-05-15 22:33:10 | INFO     | app.main:log_requests:89 - GET /openapi.json - 200 - 82.74ms
+2026-05-15 22:34:17 | INFO     | app.main:log_requests:89 - POST /api/v1/auth/login - 200 - 279.55ms
+2026-05-15 22:34:29 | INFO     | app.main:log_requests:89 - GET /api/v1/auth/me - 422 - 0.89ms
+2026-05-15 22:58:51 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 22:58:51 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 22:58:58 | INFO     | app.main:log_requests:89 - GET /docs - 404 - 0.47ms
+2026-05-15 23:03:31 | INFO     | app.main:lifespan:20 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 23:03:31 | INFO     | app.main:lifespan:21 - Debug 模式: True
+2026-05-15 23:03:36 | INFO     | app.main:log_requests:89 - GET /docs - 200 - 0.32ms
+2026-05-15 23:03:36 | INFO     | app.main:log_requests:89 - GET /openapi.json - 200 - 84.5ms
+2026-05-15 23:03:55 | INFO     | app.main:log_requests:89 - POST /api/v1/auth/login - 200 - 303.16ms
+2026-05-15 23:04:08 | INFO     | app.main:log_requests:89 - GET /api/v1/auth/me - 422 - 3.05ms
+2026-05-15 23:07:15 | INFO     | app.main:log_requests:89 - GET /openapi.json - 200 - 1.04ms
+2026-05-15 23:18:38 | INFO     | app.main:lifespan:21 - 启动 企业员工管理系统 v1.0.0
+2026-05-15 23:18:38 | INFO     | app.main:lifespan:22 - Debug 模式: True
+2026-05-15 23:18:44 | INFO     | app.main:log_requests:108 - GET /docs - 200 - 0.66ms
+2026-05-15 23:18:44 | INFO     | app.main:log_requests:108 - GET /openapi.json - 200 - 94.26ms
+2026-05-15 23:18:57 | INFO     | app.main:log_requests:108 - POST /api/v1/auth/login - 200 - 282.56ms
+2026-05-15 23:20:37 | INFO     | app.main:log_requests:108 - GET /api/v1/auth/me - 422 - 1.11ms
