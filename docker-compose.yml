@@ -1,7 +1,7 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: eems_mysql
+    container_name: helixhr_mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root_password_123
@@ -20,12 +20,12 @@ services:
 
   app:
     build: .
-    container_name: eems_app
+    container_name: helixhr_app
     restart: unless-stopped
     ports:
       - "8001:8001"
     environment:
-      APP_NAME: 企业员工管理系统
+      APP_NAME: AI驱动的人力资源系统
       APP_VERSION: 1.0.0
       APP_DEBUG: "false"
       APP_PORT: 8001

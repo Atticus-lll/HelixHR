@@ -1,6 +1,6 @@
-# 企业员工管理系统 · Enterprise Employee Management System (EEMS)
+# AI驱动的人力资源系统 · AI-Driven Human Resources System (HelixHR)
 
-> 基于 FastAPI + MySQL + ChromaDB 构建的企业级员工管理系统，支持 RBAC 权限控制、JWT 认证与 RAG 智能知识检索。
+> 基于 FastAPI + MySQL + ChromaDB 构建的 AI 驱动型人力资源系统，支持 RBAC 权限控制、JWT 认证与 RAG 智能知识检索。
 
 ---
 
@@ -177,7 +177,7 @@ docker-compose up --build -d
 ## 项目结构
 
 `
-enterprise-employee-management/
+helix-hr/
 ├── app/
 │   ├── main.py              # FastAPI 入口
 │   ├── config.py            # 配置管理（YAML + ENV）

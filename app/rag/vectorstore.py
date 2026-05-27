@@ -70,7 +70,7 @@ def get_or_create_collection() -> chromadb.Collection:
     except Exception:
         collection = client.create_collection(
             name=settings.rag.collection_name,
-            metadata={"description": "EEMS document knowledge base"},
+            metadata={"description": "HelixHR document knowledge base"},
         )
     return collection
 

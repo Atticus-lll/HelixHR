@@ -21,7 +21,7 @@ load_env_file()
 
 
 class Settings(BaseModel):
-    app_name: str = os.getenv('APP_NAME', '企业员工管理系统')
+    app_name: str = os.getenv('APP_NAME', 'AI驱动的人力资源系统')
     app_version: str = os.getenv('APP_VERSION', '0.1.0')
     debug: bool = os.getenv('APP_DEBUG', 'true').lower() == 'true'
     database_url: str = os.getenv(

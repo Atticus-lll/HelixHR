@@ -8,7 +8,7 @@ from pydantic import BaseModel
 
 
 class AppConfig(BaseModel):
-    name: str = "企业员工管理系统"
+    name: str = "AI驱动的人力资源系统"
     version: str = "1.0.0"
     debug: bool = True
     host: str = "0.0.0.0"
@@ -69,7 +69,7 @@ class RateLimitConfig(BaseModel):
 class RAGConfig(BaseModel):
     embedding_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
     embedding_dimension: int = 384
-    collection_name: str = "eems_documents"
+    collection_name: str = "helixhr_documents"
     persist_directory: str = "./data/chroma_db"
     chunk_size: int = 800
     chunk_overlap: int = 50

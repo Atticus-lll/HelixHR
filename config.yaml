@@ -1,5 +1,5 @@
 app:
-  name: "企业员工管理系统"
+  name: "AI驱动的人力资源系统"
   version: "1.0.0"
   debug: true
   host: "0.0.0.0"
@@ -36,7 +36,7 @@ rate_limit:
 rag:
   embedding_model: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
   embedding_dimension: 384
-  collection_name: "eems_documents"
+  collection_name: "helixhr_documents"
   persist_directory: "./data/chroma_db"
   chunk_size: 800
   chunk_overlap: 50

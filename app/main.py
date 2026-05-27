@@ -29,7 +29,7 @@ app = FastAPI(
     version=settings.app.version,
     debug=settings.app.debug,
     description=(
-        "基于 FastAPI + SQLAlchemy 的企业员工管理系统\n"
+        "基于 FastAPI + SQLAlchemy 的 AI 驱动型人力资源系统\n"
         "- 支持 RBAC 权限控制\n"
         "- JWT 认证\n"
         "- RAG 智能知识检索\n"

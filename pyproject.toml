@@ -1,7 +1,7 @@
 [project]
-name = "enterprise-employee-management"
+name = "helix-hr"
 version = "1.0.0"
-description = "Enterprise Employee Management System with RAG capabilities"
+description = "AI-Driven Human Resources System with RAG capabilities"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115.0",

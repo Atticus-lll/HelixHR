@@ -72,7 +72,7 @@ def main():
         pass
     collection = client.create_collection(
         name=settings.rag.collection_name,
-        metadata={"description": "EEMS document knowledge base"},
+        metadata={"description": "HelixHR document knowledge base"},
     )
     print(f"  Collection '{collection.name}' ready.")
 

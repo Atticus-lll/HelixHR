@@ -1,10 +1,10 @@
-# 企业员工管理系统 · 项目规格说明书
+# AI驱动的人力资源系统 · 项目规格说明书
 
 ## 1. 项目概述
 
-- **项目名称**: 企业员工管理系统（EEMS - Enterprise Employee Management System）
+- **项目名称**: AI驱动的人力资源系统（HelixHR - AI-Driven Human Resources System）
 - **项目类型**: RESTful API 后端服务
-- **核心功能**: 基于 FastAPI 构建的企业级员工管理系统，支持 RBAC 权限控制、JWT 认证、MySQL 数据库存储，并集成 RAG（检索增强生成）模块。
+- **核心功能**: 基于 FastAPI 构建的 AI 驱动型人力资源系统，支持 RBAC 权限控制、JWT 认证、MySQL 数据库存储，并集成 RAG（检索增强生成）模块。
 - **目标用户**: 企业 HR 管理人员、行政人员、普通员工
 
 ## 2. 技术栈
