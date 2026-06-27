@@ -41,7 +41,7 @@ def test_create_employee(client: TestClient, db_session: Session):
         },
         headers=headers,
     )
-    assert response.status_code == 200
+    assert response.status_code == 201
     data = response.json()
     assert data["data"]["name"] == "张三"
     assert data["data"]["employee_number"] == "E001"

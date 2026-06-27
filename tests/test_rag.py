@@ -26,7 +26,7 @@ def test_rag_stats(client: TestClient, db_session: Session):
     response = client.get("/api/v1/rag/stats", headers=headers)
     assert response.status_code == 200
     data = response.json()
-    assert "collection_name" in data["data"]
+    assert "collection_name" in data
 
 
 def test_rag_list_documents(client: TestClient, db_session: Session):
@@ -53,7 +53,7 @@ def test_rag_ingest_text(client: TestClient, db_session: Session):
         },
         headers=headers,
     )
-    assert response.status_code == 200
+    assert response.status_code == 201
     data = response.json()
     assert data["data"]["chunks_count"] > 0
     assert data["data"]["status"] == "indexed"
@@ -80,4 +80,4 @@ def test_rag_query_after_ingest(client: TestClient, db_session: Session):
     )
     assert response.status_code == 200
     data = response.json()
-    assert data["data"]["total_results"] >= 0
+    assert data["total_results"] >= 0

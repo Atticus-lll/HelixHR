@@ -1,276 +1,146 @@
-# AI驱动的人力资源系统 · AI-Driven Human Resources System (HelixHR)
+# HelixHR - AI-Driven Human Resources System
 
-> 基于 FastAPI + MySQL + ChromaDB 构建的 AI 驱动型人力资源系统，支持 RBAC 权限控制、JWT 认证与 RAG 智能知识检索。
+基于 FastAPI + MySQL + ChromaDB 的企业 HR 后端系统，覆盖员工、部门、薪资、角色权限和 HR 知识库问答。项目重点展示 Python 后端工程能力、RBAC 权限控制、JWT 认证、RAG 检索增强和 Docker 部署。
 
----
+## 项目定位
 
-## 功能特性
+企业 HR 制度文档分散，员工经常重复咨询请假、考勤、薪资、入职流程等问题。HelixHR 将传统 HR 管理 API 与 RAG 知识库结合，让管理员上传制度文档，员工通过自然语言查询，并返回可追溯的检索结果。
 
-### 核心功能
-- **员工管理**: 完整的 CRUD 操作，支持分页、筛选、排序
-- **部门管理**: 树形部门结构，支持多级部门
-- **薪资管理**: 月度薪资录入、编辑、查询，含自动计算
-- **角色权限**: 基于 RBAC 的细粒度权限控制
-- **RAG 知识库**: 文档上传、向量化、自然语言检索
+## 核心功能
 
-### 企业级特性
-- **JWT 认证**: HS256 算法，支持 Token 自动过期
-- **请求限流**: 基于 IP 的访问频率限制
-- **统一异常处理**: 标准化的错误响应格式
-- **日志追踪**: 结构化日志，支持文件轮转
-- **数据库迁移**: Alembic 版本化管理
-- **容器化部署**: Docker + docker-compose 一键启动
-
----
+- 员工管理：分页、筛选、排序、增删改查。
+- 部门管理：支持部门层级结构。
+- 薪资管理：月度薪资记录、查询和维护。
+- RBAC 权限：管理员、HR、普通员工等角色隔离。
+- JWT 认证：无状态认证与 token 过期控制。
+- RAG 知识库：文档上传、自动切分、向量化、自然语言检索。
+- 请求限流：基于 IP 的访问频率保护。
+- 数据库迁移：Alembic 管理 schema 版本。
+- Docker 部署：Dockerfile + docker-compose 一键启动。
+- 测试覆盖：pytest 覆盖认证、员工和 RAG 核心接口。
 
 ## 技术栈
 
-| 组件 | 技术 |
-|------|------|
-| Web 框架 | FastAPI 0.115+ |
-| ORM | SQLAlchemy 2.0 |
-| 数据库 | MySQL 8.0 |
-| 迁移工具 | Alembic |
-| 验证 | Pydantic v2 |
-| 认证 | JWT (python-jose) + bcrypt |
-| 嵌入模型 | sentence-transformers |
-| 向量数据库 | ChromaDB |
+| 模块 | 技术 |
+| --- | --- |
+| Web 框架 | FastAPI |
+| ORM | SQLAlchemy 2.x |
+| 数据库 | MySQL 8 |
+| 迁移 | Alembic |
+| 认证 | JWT + bcrypt |
+| 权限 | RBAC |
+| RAG | sentence-transformers + ChromaDB |
+| 配置 | YAML + ENV |
 | 日志 | loguru |
-| 容器化 | Docker |
-| 测试 | pytest |
+| 测试 | pytest / pytest-asyncio / httpx |
+| 部署 | Docker / docker-compose |
 
----
+## 架构
+
+```mermaid
+flowchart LR
+    Client["Client / Admin"] --> API["FastAPI"]
+    API --> Auth["JWT + RBAC"]
+    API --> Services["Business Services"]
+    Services --> Repo["Repository Layer"]
+    Repo --> MySQL["MySQL"]
+    Services --> RAG["RAG Service"]
+    RAG --> Embed["Embeddings"]
+    RAG --> Chroma["ChromaDB"]
+    API --> Logs["Structured Logs"]
+```
 
 ## 快速开始
 
-### 环境要求
-
-- Python 3.11+
-- MySQL 8.0+
-- Docker & Docker Compose（可选）
-
-### 1. 克隆并安装依赖
-
-`ash
-git clone <repository-url>
-cd enterprise-employee-management
-pip install -r requirements.txt
-`
-
-### 2. 配置数据库
-
-复制配置文件：
-
-`ash
+```bash
 cp .env.example .env
-# 编辑 .env 中的配置
-`
-
-### 3. 初始化数据库
-
-`ash
+pip install -r requirements.txt
 python scripts/init_db.py
-`
-
-该脚本将：
-- 创建所有数据库表
-- 创建默认角色（系统管理员、人事专员、普通员工）
-- 创建默认管理员账号：dmin / dmin123456
-- 创建默认部门（技术部、人力资源部、销售部、财务部）
-
-### 4. 启动服务
-
-**开发模式：**
-
-`ash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
-`
+```
 
-**生产模式（使用 Docker）：**
+访问：
 
-`ash
-docker-compose up --build -d
-`
+- Swagger: `http://localhost:8001/docs`
+- ReDoc: `http://localhost:8001/redoc`
+- Health: `http://localhost:8001/health`
 
-服务启动后访问：
-- API 文档: http://localhost:8001/docs
-- ReDoc 文档: http://localhost:8001/redoc
-- 健康检查: http://localhost:8001/health
+## Docker 启动
 
----
+```bash
+docker compose up --build -d
+```
 
-## Docker 部署
+## 主要接口
 
-### 使用 Docker Compose（推荐）
+### 认证
 
-`ash
-docker-compose up --build -d
-`
+| Method | Path | Description |
+| --- | --- | --- |
+| POST | `/api/v1/auth/login` | 登录 |
+| POST | `/api/v1/auth/register` | 注册用户 |
+| GET | `/api/v1/auth/me` | 当前用户信息 |
 
-这将启动：
-- mysql: MySQL 8.0 数据库容器
-- pp: FastAPI 应用容器
+### 员工与组织
 
----
+| Method | Path | Description |
+| --- | --- | --- |
+| GET | `/api/v1/employees` | 员工列表 |
+| POST | `/api/v1/employees` | 新增员工 |
+| GET | `/api/v1/departments` | 部门列表 |
+| POST | `/api/v1/departments` | 新增部门 |
 
-## API 接口文档
+### RAG 知识库
 
-### 认证接口
+| Method | Path | Description |
+| --- | --- | --- |
+| POST | `/api/v1/rag/documents/upload` | 上传制度文档 |
+| POST | `/api/v1/rag/documents/text` | 提交文本内容 |
+| POST | `/api/v1/rag/query` | 自然语言检索 |
+| GET | `/api/v1/rag/documents` | 文档列表 |
+| GET | `/api/v1/rag/stats` | 知识库统计 |
 
-| 接口 | 方法 | 描述 | 权限 |
-|------|------|------|------|
-| /api/v1/auth/login | POST | 用户登录 | 公开 |
-| /api/v1/auth/register | POST | 注册用户 | 管理员 |
-| /api/v1/auth/me | GET | 当前用户信息 | 登录用户 |
+## RAG 落地价值
 
-### 员工管理
+适合放入员工手册、考勤制度、请假制度、薪资说明和入职流程。系统通过文档切分、embedding 和向量检索返回相关内容，减少 HR 重复答疑成本。
 
-| 接口 | 方法 | 描述 | 权限 |
-|------|------|------|------|
-| /api/v1/employees | GET | 员工列表（分页） | 登录用户 |
-| /api/v1/employees | POST | 新增员工 | 人事专员 |
-| /api/v1/employees/{id} | GET | 员工详情 | 登录用户 |
-| /api/v1/employees/{id} | PUT | 更新员工 | 人事专员 |
-| /api/v1/employees/{id} | DELETE | 删除员工 | 管理员 |
+建议评测方式：
 
-### 部门管理
-
-| 接口 | 方法 | 描述 | 权限 |
-|------|------|------|------|
-| /api/v1/departments | GET | 部门列表 | 登录用户 |
-| /api/v1/departments | POST | 新增部门 | 管理员 |
-| /api/v1/departments/{id} | GET | 部门详情 | 登录用户 |
-| /api/v1/departments/{id} | PUT | 更新部门 | 管理员 |
-| /api/v1/departments/{id} | DELETE | 删除部门 | 管理员 |
-
-### 薪资管理
-
-| 接口 | 方法 | 描述 | 权限 |
-|------|------|------|------|
-| /api/v1/salaries | GET | 薪资记录列表 | 人事专员 |
-| /api/v1/salaries | POST | 录入薪资 | 人事专员 |
-| /api/v1/salaries/{id} | PUT | 更新薪资 | 人事专员 |
-| /api/v1/salaries/employee/{emp_id} | GET | 员工薪资历史 | 人事专员 |
-
-### 角色管理
-
-| 接口 | 方法 | 描述 | 权限 |
-|------|------|------|------|
-| /api/v1/roles | GET | 角色列表 | 管理员 |
-| /api/v1/roles | POST | 创建角色 | 管理员 |
-| /api/v1/roles/{id} | PUT | 更新角色 | 管理员 |
-| /api/v1/roles/{id} | DELETE | 删除角色 | 管理员 |
-
-### RAG 知识检索
-
-| 接口 | 方法 | 描述 | 权限 |
-|------|------|------|------|
-| /api/v1/rag/query | POST | 自然语言检索 | 管理员 |
-| /api/v1/rag/documents/upload | POST | 上传文档（.txt/.md） | 管理员 |
-| /api/v1/rag/documents/text | POST | 提交文本内容 | 管理员 |
-| /api/v1/rag/documents | GET | 文档列表 | 管理员 |
-| /api/v1/rag/documents/{id} | DELETE | 删除文档 | 管理员 |
-| /api/v1/rag/stats | GET | 统计信息 | 管理员 |
-
----
-
-## 项目结构
-
-`
-helix-hr/
-├── app/
-│   ├── main.py              # FastAPI 入口
-│   ├── config.py            # 配置管理（YAML + ENV）
-│   ├── api/                 # API 路由层
-│   │   ├── deps.py         # 依赖注入
-│   │   └── v1/             # v1 API 版本
-│   ├── core/               # 核心模块
-│   │   ├── security.py     # JWT + 密码工具
-│   │   ├── exceptions.py   # 自定义异常
-│   │   └── pagination.py   # 分页工具
-│   ├── models/             # SQLAlchemy 模型层
-│   ├── schemas/            # Pydantic Schema 层
-│   ├── services/           # 业务逻辑层
-│   ├── repositories/       # 数据访问层
-│   ├── rag/                # RAG 模块
-│   └── utils/              # 日志配置
-├── alembic/                # 数据库版本管理
-├── tests/                  # 测试
-├── scripts/
-│   └── init_db.py         # 数据库初始化
-├── config.yaml             # 主配置文件
-├── docker-compose.yml
-├── Dockerfile
-├── requirements.txt
-└── README.md
-`
-
----
-
-## RAG 模块使用
-
-### 方式一：上传文档
-
-`ash
-curl -X POST "http://localhost:8001/api/v1/rag/documents/upload" \
-  -H "Authorization: Bearer <token>" \
-  -F "file=@员工手册.txt" \
-  -F "title=员工手册v1.0" \
-  -F "source=HR部门"
-`
-
-### 方式二：直接提交文本
-
-`ash
-curl -X POST "http://localhost:8001/api/v1/rag/documents/text?title=考勤制度&content=公司实行弹性工作制..." \
-  -H "Authorization: Bearer <token>"
-`
-
-### 自然语言检索
-
-`ash
-curl -X POST "http://localhost:8001/api/v1/rag/query" \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
-  -d '"{\"query\": \"加班政策是什么？\", \"top_k\": 5}"'
-`
-
----
+- 准备 30 条 HR 常见问题。
+- 记录 top-k 命中率、回答准确率和 bad case。
+- 针对 bad case 调整 chunk size、top_k、关键词召回和文档结构。
 
 ## 测试
 
-`ash
+```bash
 pytest tests/ -v
-`
+pytest tests/ --cov=app --cov-report=term-missing
+```
 
----
+## 项目结构
 
-## 默认账号
+```text
+.
+├── app/
+│   ├── api/             # API 路由
+│   ├── core/            # 安全、异常、分页等基础模块
+│   ├── db/              # 数据库会话
+│   ├── models/          # SQLAlchemy 模型
+│   ├── rag/             # RAG 检索模块
+│   ├── repositories/    # 数据访问层
+│   ├── schemas/         # Pydantic Schema
+│   └── services/        # 业务服务层
+├── alembic/             # 数据库迁移
+├── scripts/             # 初始化和索引重建脚本
+├── tests/               # 自动化测试
+├── Dockerfile
+└── docker-compose.yml
+```
 
-| 角色 | 用户名 | 密码 |
-|------|--------|------|
-| 系统管理员 | admin | admin123456 |
+## 简历可讲亮点
 
----
-
-## 数据库迁移
-
-`ash
-# 创建新迁移
-alembic revision --autogenerate -m "add new table"
-
-# 执行迁移
-alembic upgrade head
-
-# 回滚
-alembic downgrade -1
-
-# 查看历史
-alembic history
-`
-
----
-
-## 许可证
-
-MIT License
+- 使用分层架构拆分 API、Service、Repository，提升可维护性。
+- RBAC + JWT 实现不同角色的接口权限隔离。
+- 基于 ChromaDB 构建 HR 知识库检索能力，支持文档上传、切分、向量化和查询。
+- 使用 Alembic 管理数据库版本，Docker Compose 编排 MySQL 和应用服务。
+- 通过 pytest 覆盖认证、员工管理和 RAG 核心流程。

@@ -1,6 +1,0 @@
-2026-05-16 15:46:39 | INFO     | app.main:lifespan:21 - 启动 企业员工管理系统 v1.0.0
-2026-05-16 15:46:39 | INFO     | app.main:lifespan:22 - Debug 模式: True
-2026-05-16 15:47:03 | INFO     | app.main:log_requests:108 - GET /docs - 200 - 1.02ms
-2026-05-16 15:47:03 | INFO     | app.main:log_requests:108 - GET /openapi.json - 200 - 175.17ms
-2026-05-16 15:47:21 | INFO     | app.main:log_requests:108 - POST /api/v1/auth/login - 200 - 451.48ms
-2026-05-16 15:47:36 | INFO     | app.main:log_requests:108 - GET /api/v1/auth/me - 422 - 2.9ms
