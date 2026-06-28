@@ -110,12 +110,9 @@ async def delete_document(document_id: str, _: AdminUser = Depends(AdminUser)):
 async def get_rag_stats(_: AdminUser = Depends(AdminUser)):
     svc = RAGService()
     stats = svc.get_statistics()
-    return api_response(
-        data={
-            'total_documents': stats.get('total_documents', 0),
-            'total_chunks': stats.get('total_documents', 0),
-            'collection_name': stats.get('collection_name', ''),
-            'embedding_model': stats.get('embedding_model', ''),
-        },
-        message='查询成功',
-    )
+    return {
+        'total_documents': stats.get('total_documents', 0),
+        'total_chunks': stats.get('total_chunks', stats.get('total_documents', 0)),
+        'collection_name': stats.get('collection_name', ''),
+        'embedding_model': stats.get('embedding_model', ''),
+    }

@@ -2,7 +2,7 @@
 name = "helix-hr"
 version = "1.0.0"
 description = "AI-Driven Human Resources System with RAG capabilities"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.32.0",
@@ -14,6 +14,8 @@ dependencies = [
     "passlib[bcrypt]>=1.7.4",
     "sentence-transformers>=3.3.0",
     "chromadb>=0.4.0",
+    "rank-bm25>=0.2.2",
+    "jieba>=0.42.1",
     "loguru>=0.7.2",
     "slowapi>=0.1.9",
 ]
